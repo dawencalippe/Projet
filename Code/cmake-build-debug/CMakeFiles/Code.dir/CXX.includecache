@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/MIAGE/Cours L3 MIAGE-20190902T152815Z-001/Cours L3 MIAGE 2019-2020/PROGOO/Projet/Code/main.cpp
+iostream
+-
+
