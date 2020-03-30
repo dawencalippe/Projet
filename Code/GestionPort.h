@@ -8,12 +8,15 @@
 
 #include "Abonne.h"
 #include "Visiteur.h"
+#include "Ressource/tinyxml2/tinyxml2.h"
 #include <list>
 
 class GestionPort {
 private:
     std::list <Abonne *> _listeAbonne;
     std::list <Visiteur *> _listeVisiteur;
+
+
 public:
     const std::list<Abonne *> &getListeAbonne() const;
     void setListeAbonne(const std::list<Abonne *> &listeAbonne);
@@ -27,6 +30,9 @@ public:
     void afficheAbonne();
     void addAbonne(Abonne * abonne);
     void removeAbonne(Abonne * abonne);
+    void sauvegarde();
+    void sauvegardePersonne(tinyxml2::XMLDocument * document, tinyxml2::XMLElement * root);
+    void import();
 };
 
 #endif //CODE_GESTIONPORT_H

@@ -15,8 +15,16 @@ public:
     static int current_id;
     Abonne();
     Abonne(char* nomPersonne, char* prenomPersonne, int agePersonne);
+    Abonne(int idAbonne,char * nomPersonne, char* prenomPersonne, int agePersonne, char * dateAbonnement);
     void affiche() const;
     ~Abonne();
+    int getIdAbonne() const;
+
+    void setIdAbonne(int idAbonne);
+
+    char *getDateAbonnement() const;
+
+    void setDateAbonnement(char *dateAbonnement);
 };
 
 
