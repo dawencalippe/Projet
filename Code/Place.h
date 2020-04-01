@@ -8,17 +8,21 @@
 #include "Bateau.h"
 
 class Place {
-protected :
-    int id;
-    float tailleMax;
-    float prix;
-    Bateau * bateauPtr;
-
+public:
+    enum TYPEPLACE{
+        PLACENORMAL,
+        PLACEGRANDE,
+        CORPSMORT,
+    };
+private :
+    int _idPlace;
+    float _tailleMax;
+    TYPEPLACE _typePlace;
+    bool _prise;
+    bool _suplemmentElectricite;
+    bool _suplementEau;
 public :
-    Place(int id, float tailleMax, Bateau *bateauPtr);
-
-    bool placementPossible();
-
+    Place(int id, float tailleMax, TYPEPLACE typePlace);
     virtual ~Place();
 };
 

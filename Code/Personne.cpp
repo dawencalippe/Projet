@@ -5,6 +5,7 @@
 #include <c++/4.8.3/cstring>
 #include <c++/4.8.3/iostream>
 #include "Personne.h"
+#include "Bateau.h"
 
 //Constructeur par défaut
 Personne::Personne() {
@@ -72,4 +73,17 @@ int Personne::getAge() const {
 
 void Personne::setAge(int age) {
     _age = age;
+}
+
+void Personne::addBateau(Bateau * bateau) {
+    _listeBateaux.push_back(bateau);
+}
+
+void Personne::removeBateau(Bateau * bateau) {
+    _listeBateaux.remove(bateau);
+    delete(bateau);
+}
+
+const std::list<Bateau *> &Personne::getListeBateaux() const {
+    return _listeBateaux;
 }

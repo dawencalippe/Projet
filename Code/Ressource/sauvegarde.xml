@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <App>
-    <ListeAbonnes>
-        <abonne prenom="Abonne" nom="Abonne" age="21" idAbonne="1" dateAbonnement=""/>
-        <abonne prenom="jhgjhgjh" nom="Abonne" age="22" idAbonne="2" dateAbonnement="€¤y"/>
-        <abonne prenom="Abnbbbbbonne" nom="Abonne" age="23" idAbonne="3" dateAbonnement=""/>
-        <abonne prenom="Abmllmmlonne" nom="Abonne" age="21" idAbonne="1" dateAbonnement=""/>
-        <abonne prenom="Abonne" nom="Abonne" age="21" idAbonne="1" dateAbonnement=""/>
-        <abonne prenom="jhgjhgjh" nom="Abonne" age="22" idAbonne="2" dateAbonnement=""/>
-        <abonne prenom="Abnbbbbbonne" nom="Abonne" age="23" idAbonne="3" dateAbonnement=""/>
-        <abonne prenom="Abmllmmlonne" nom="Abonne" age="21" idAbonne="1" dateAbonnement=""/>
-        <abonne prenom="Abonne" nom="Abonne" age="21" idAbonne="1" dateAbonnement=""/>
-        <abonne prenom="jhgjhgjh" nom="Abonne" age="22" idAbonne="2" dateAbonnement=""/>
-        <abonne prenom="Abnbbbbbonne" nom="Abonne" age="23" idAbonne="3" dateAbonnement=""/>
-        <abonne prenom="Abmllmmlonne" nom="Abonne" age="21" idAbonne="1" dateAbonnement=""/>
-        <abonne prenom="Abonne" nom="Abonne" age="21" idAbonne="1" dateAbonnement=""/>
-        <abonne prenom="jhgjhgjh" nom="Abonne" age="22" idAbonne="2" dateAbonnement=""/>
-        <abonne prenom="Abnbbbbbonne" nom="Abonne" age="23" idAbonne="3" dateAbonnement=""/>
-        <abonne prenom="Abmllmmlonne" nom="Abonne" age="21" idAbonne="1" dateAbonnement=""/>
+    <ListeAbonnes currentID="1">
+        <abonne prenom="Calippe" nom="Dawen" age="21" idAbonne="0" dateAbonnement="Wed Apr 01 15:56:36 2020
+">
+            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+        </abonne>
+        <abonne prenom="Calippe" nom="Dawen" age="21" idAbonne="0" dateAbonnement="Wed Apr 01 15:56:36 2020
+">
+            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+        </abonne>
+        <abonne prenom="Calippe" nom="Dawen" age="21" idAbonne="0" dateAbonnement="Wed Apr 01 15:56:36 2020
+">
+            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+        </abonne>
     </ListeAbonnes>
-    <ListeVisiteurs/>
+    <ListeVisiteurs currentID="0"/>
 </App>

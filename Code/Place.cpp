@@ -8,8 +8,5 @@ Place::~Place() {
 
 }
 
-Place::Place(int id, float tailleMax, Bateau *bateauPtr) : id(id), tailleMax(tailleMax), bateauPtr(bateauPtr) {}
+Place::Place(int id, float tailleMax, TYPEPLACE typePlace) : _idPlace(id), _tailleMax(tailleMax), _typePlace(typePlace) {}
 
-bool Place::placementPossible() {
-    return bateauPtr == nullptr;
-}

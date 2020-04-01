@@ -9,13 +9,15 @@
 #include "Abonne.h"
 #include "Visiteur.h"
 #include "Ressource/tinyxml2/tinyxml2.h"
+#include "Place.h"
 #include <list>
+#include <c++/4.8.3/map>
 
 class GestionPort {
 private:
     std::list <Abonne *> _listeAbonne;
     std::list <Visiteur *> _listeVisiteur;
-
+    std::list <Place *> _listePlace;
 
 public:
     const std::list<Abonne *> &getListeAbonne() const;

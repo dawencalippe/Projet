@@ -77,6 +77,7 @@ void GestionPort::sauvegarde() {
 
 void GestionPort::sauvegardePersonne(tinyxml2::XMLDocument * document, tinyxml2::XMLElement * root) {
     XMLElement * abonne = document->NewElement("ListeAbonnes");
+    abonne->SetAttribute("currentID",Abonne::current_id);
     root->InsertEndChild(abonne);
     for(auto &it : _listeAbonne){
         XMLElement * abonneAdd = document->NewElement("abonne");
@@ -86,8 +87,18 @@ void GestionPort::sauvegardePersonne(tinyxml2::XMLDocument * document, tinyxml2:
         abonneAdd->SetAttribute("idAbonne",it->getIdAbonne());
         abonneAdd->SetAttribute("dateAbonnement",it->getDateAbonnement());
         abonne->InsertEndChild(abonneAdd);
+        for(auto &bateaux : it->getListeBateaux()){
+            XMLElement * bateauAdd = document->NewElement("Bateau");
+            bateauAdd->SetAttribute("nom", bateaux->getNom());
+            bateauAdd->SetAttribute("taille", bateaux->getTaille());
+            bateauAdd->SetAttribute("nombreCabine", bateaux->getNbCabines());
+            bateauAdd->SetAttribute("typeBateau", bateaux->getTypeBateau());
+            bateauAdd->SetAttribute("currentPlace", bateaux->getCurrentPlace());
+            abonneAdd->InsertEndChild(bateauAdd);
+        }
     }
     XMLElement * visiteur = document->NewElement("ListeVisiteurs");
+    visiteur->SetAttribute("currentID",Visiteur::current_id);
     root->InsertEndChild(visiteur);
     for(auto &it : _listeVisiteur){
         XMLElement * visiteurAdd = document->NewElement("visiteur");
@@ -118,7 +129,6 @@ void GestionPort::import() {
             dateAbonnement = const_cast<char *>(abonne->Attribute("dateAbonnement"));
             abonne->QueryIntAttribute("age",&age);
             abonne->QueryIntAttribute("idAbonne",&idAbonnement);
-            cout<<"Insertion de l'abonné :" << dateAbonnement << " " << age << endl;
             Abonne * abonneAdd = new Abonne(idAbonnement,nom,prenom ,age , dateAbonnement);
             _listeAbonne.push_back(abonneAdd);
             abonne = abonne->NextSiblingElement();
@@ -127,6 +137,9 @@ void GestionPort::import() {
         cout<<"Erreur lors de l'ouverture du fichier : "<< tinyxml2::XMLDocument::ErrorIDToName(error) <<endl;
     }
 }
+
+
+
 
 
 
