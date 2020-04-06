@@ -3,6 +3,7 @@
 #include "Abonne.h"
 #include "Visiteur.h"
 #include "GestionPort.h"
+#include "Menu.h"
 
 int main() {
     std::cout << "Hello, Dawen et Aurore!" << std::endl;
@@ -16,4 +17,8 @@ int main() {
     port.addAbonne(abonne);
     port.addAbonne(abonne);
     port.sauvegarde();
+
+    Menu menu;
+    menu.ajouterUnePersonne();
+
 }

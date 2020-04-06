@@ -34,6 +34,10 @@ void GestionPort::setListeVisiteur(const list<Visiteur *> &listeVisiteur) {
     _listeVisiteur = listeVisiteur;
 }
 
+const list<Place *> &GestionPort::getListePlace() const {
+    return _listePlace;
+}
+
 void GestionPort::addVisiteur(Visiteur *visiteur) {
     _listeVisiteur.push_back(visiteur);
 }
@@ -49,6 +53,17 @@ void GestionPort::afficheAbonne() {
     cout<<"Liste des abonnes :"<<endl;
     for(auto &it : _listeAbonne){
         it->affiche();
+    }
+}
+
+void GestionPort::afficherPlaceDispo() {
+    cout <<"Liste des places disponibles :"<<endl;
+    for(auto &it : _listePlace){
+        if(!it->isPrise()){
+            it->affichePlaces();
+        } else {
+            cout << "aucune place dispo"<<endl;
+        }
     }
 }
 
@@ -137,6 +152,10 @@ void GestionPort::import() {
         cout<<"Erreur lors de l'ouverture du fichier : "<< tinyxml2::XMLDocument::ErrorIDToName(error) <<endl;
     }
 }
+
+
+
+
 
 
 

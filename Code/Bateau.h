@@ -26,22 +26,15 @@ public :
     int getTaille() const;
 
     void setTaille(int taille);
-
     int getNbCabines() const;
-
     void setNbCabines(int nbCabines);
-
     char *getNom() const;
-
     void setNom(char *nom);
-
     int getCurrentPlace() const;
-
     void setCurrentPlace(int currentPlace);
-
     TYPEBATEAU getTypeBateau() const;
-
     void setTypeBateau(TYPEBATEAU typeBateau);
+    void affiche() const;
 };
 
 

@@ -2,7 +2,7 @@
 // Created by 33629 on 26/03/2020.
 //
 #include "Bateau.h"
-
+#include <iostream>
 
 Bateau::Bateau() {
     _taille = 0;
@@ -57,6 +57,11 @@ Bateau::TYPEBATEAU Bateau::getTypeBateau() const {
 
 void Bateau::setTypeBateau(Bateau::TYPEBATEAU typeBateau) {
     _typeBateau = typeBateau;
+}
+
+void Bateau::affiche() const{
+    std::cout << "Nom du Bateau : " << _nom <<", taille : " <<_taille <<", nombre de cabine : " << _nbCabines
+    << ", place du bateau : " << _currentPlace << ", tyep de bateau :" <<_typeBateau << std::endl;
 }
 
 

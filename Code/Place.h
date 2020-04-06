@@ -22,8 +22,23 @@ private :
     bool _suplemmentElectricite;
     bool _suplementEau;
 public :
+    Place();
     Place(int id, float tailleMax, TYPEPLACE typePlace);
     virtual ~Place();
+
+    int getIdPlace() const;
+
+    bool isPrise() const;
+    void setPrise(bool prise);
+    bool isSuplemmentElectricite() const;
+    void setSuplemmentElectricite(bool suplemmentElectricite);
+    bool isSuplementEau() const;
+    void setSuplementEau(bool suplementEau);
+    void affichePlaces() const;
+    void affichePlaceNormale() const;
+    void affichePlaceGrande() const;
+    void afficheCoprsMort() const;
+
 };
 
 

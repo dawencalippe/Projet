@@ -24,6 +24,9 @@ public:
     void setListeAbonne(const std::list<Abonne *> &listeAbonne);
     const std::list<Visiteur *> &getListeVisiteur() const;
     void setListeVisiteur(const std::list<Visiteur *> &listeVisiteur);
+
+    const std::list<Place *> &getListePlace() const;
+
     GestionPort();
     ~GestionPort();
     void afficheVisiteur();
@@ -32,6 +35,7 @@ public:
     void afficheAbonne();
     void addAbonne(Abonne * abonne);
     void removeAbonne(Abonne * abonne);
+    void afficherPlaceDispo();
     void sauvegarde();
     void sauvegardePersonne(tinyxml2::XMLDocument * document, tinyxml2::XMLElement * root);
     void import();
