@@ -10,21 +10,21 @@
 class Abonne : public Personne {
 private:
     int _idAbonne;
-    char* _dateAbonnement;
+    std::string _dateAbonnement;
 public:
     static int current_id;
     Abonne();
     Abonne(char* nomPersonne, char* prenomPersonne, int agePersonne);
-    Abonne(int idAbonne,char * nomPersonne, char* prenomPersonne, int agePersonne, char * dateAbonnement);
+    Abonne(int idAbonne,char * nomPersonne, char* prenomPersonne, int agePersonne, std::string dateAbonnement);
     void affiche() const;
     ~Abonne();
     int getIdAbonne() const;
 
     void setIdAbonne(int idAbonne);
 
-    char *getDateAbonnement() const;
+    std::string getDateAbonnement() const;
 
-    void setDateAbonnement(char *dateAbonnement);
+    void setDateAbonnement(std::string dateAbonnement);
 };
 
 

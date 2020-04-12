@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <App>
-    <ListeAbonnes currentID="1">
-        <abonne prenom="Calippe" nom="Dawen" age="21" idAbonne="0" dateAbonnement="Sun Apr 05 12:15:28 2020
+    <ListePlaces currentID="3">
+        <place idPlace="0" tailleMax="36" typePlace="1" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="1" tailleMax="36" typePlace="0" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="2" tailleMax="36" typePlace="2" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="0" tailleMax="36" typePlace="1" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="1" tailleMax="36" typePlace="0" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="2" tailleMax="36" typePlace="2" prise="false" suppElec="false" suppEau="false"/>
+    </ListePlaces>
+    <ListeAbonnes currentID="3">
+        <abonne prenom="Dawen" nom="Calippe" age="21" idAbonne="1" dateAbonnement="Fri Apr 10 10:17:59 2020
 ">
-            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="17115120"/>
-            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="17115120"/>
-            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="17115120"/>
+            <Bateau nom="Conquérant" taille="36" nombreCabine="2" typeBateau="1" currentPlace="0"/>
         </abonne>
-        <abonne prenom="Calippe" nom="Dawen" age="21" idAbonne="0" dateAbonnement="Sun Apr 05 12:15:28 2020
+        <abonne prenom="Dawen" nom="Calippe" age="21" idAbonne="0" dateAbonnement="Fri Apr 10 10:17:59 2020
 ">
-            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="17115120"/>
-            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="17115120"/>
-            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="17115120"/>
+            <Bateau nom="Conquérant" taille="36" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+            <Bateau nom="Conquérant" taille="36" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+            <Bateau nom="Conquérant" taille="36" nombreCabine="2" typeBateau="1" currentPlace="0"/>
         </abonne>
-        <abonne prenom="Calippe" nom="Dawen" age="21" idAbonne="0" dateAbonnement="Sun Apr 05 12:15:28 2020
+        <abonne prenom="Dawen" nom="Calippe" age="21" idAbonne="2" dateAbonnement="Fri Apr 10 10:17:59 2020
 ">
-            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="17115120"/>
-            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="17115120"/>
-            <Bateau nom="LeBateau" taille="35" nombreCabine="2" typeBateau="1" currentPlace="17115120"/>
+            <Bateau nom="Conquérant" taille="36" nombreCabine="2" typeBateau="1" currentPlace="0"/>
         </abonne>
     </ListeAbonnes>
-    <ListeVisiteurs currentID="0"/>
+    <ListeVisiteurs currentID="3">
+        <visiteur prenom="calippe" nom="Erwan" age="21" idVisiteur="1" dateArrivee="Fri Apr 10 10:17:59 2020
+">
+            <Bateau nom="Conquérant" taille="36" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+        </visiteur>
+        <visiteur prenom="calippe" nom="Aymeric" age="21" idVisiteur="2" dateArrivee="Fri Apr 10 10:17:59 2020
+">
+            <Bateau nom="Conquérant" taille="36" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+        </visiteur>
+        <visiteur prenom="calippe" nom="DAwen" age="21" idVisiteur="0" dateArrivee="Fri Apr 10 10:17:59 2020
+">
+            <Bateau nom="Conquérant" taille="36" nombreCabine="2" typeBateau="1" currentPlace="0"/>
+        </visiteur>
+    </ListeVisiteurs>
 </App>

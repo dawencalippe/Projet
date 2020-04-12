@@ -8,6 +8,7 @@
 
 #include <c++/4.8.3/list>
 #include "Bateau.h"
+#include <string>
 
 class Personne {
 

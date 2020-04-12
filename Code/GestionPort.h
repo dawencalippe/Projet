@@ -11,6 +11,7 @@
 #include "Ressource/tinyxml2/tinyxml2.h"
 #include "Place.h"
 #include <list>
+#include <string>
 #include <c++/4.8.3/map>
 
 class GestionPort {
@@ -24,9 +25,7 @@ public:
     void setListeAbonne(const std::list<Abonne *> &listeAbonne);
     const std::list<Visiteur *> &getListeVisiteur() const;
     void setListeVisiteur(const std::list<Visiteur *> &listeVisiteur);
-
     const std::list<Place *> &getListePlace() const;
-
     GestionPort();
     ~GestionPort();
     void afficheVisiteur();
@@ -34,11 +33,18 @@ public:
     void removeVisiteur(Visiteur * visiteur);
     void afficheAbonne();
     void addAbonne(Abonne * abonne);
+    void addPlace(Place * place);
+    void removePlace(Place * place);
     void removeAbonne(Abonne * abonne);
     void afficherPlaceDispo();
     void sauvegarde();
     void sauvegardePersonne(tinyxml2::XMLDocument * document, tinyxml2::XMLElement * root);
+    void sauvegardePlace(tinyxml2::XMLDocument * document, tinyxml2::XMLElement * root);
     void import();
+    void importPersonne(tinyxml2::XMLDocument * document);
+    void importPlace(tinyxml2::XMLDocument *document);
+
+    void importBateaux(tinyxml2::XMLElement *root, Personne *personne);
 };
 
 #endif //CODE_GESTIONPORT_H

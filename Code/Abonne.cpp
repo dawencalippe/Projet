@@ -5,6 +5,7 @@
 #include "Abonne.h"
 #include <iostream>
 #include <ctime>
+#include <c++/4.8.3/cstring>
 
 int Abonne::current_id=0;
 
@@ -20,13 +21,13 @@ Abonne::Abonne(char* nomPersonne, char* prenomPersonne, int agePersonne)
 {
     _idAbonne=current_id;
     time_t now = time(0);
-    _dateAbonnement = ctime(&now);
+    char * dateActuelle = ctime(&now);
+    std::string temp(dateActuelle);
+    _dateAbonnement = temp;
     current_id++;
 }
 
 Abonne::~Abonne(){
-    _dateAbonnement= nullptr;
-    delete [] _dateAbonnement;
     std::cout << "Abonné détruit" << std::endl;
 }
 
@@ -47,18 +48,18 @@ void Abonne::setIdAbonne(int idAbonne) {
     _idAbonne = idAbonne;
 }
 
-char *Abonne::getDateAbonnement() const {
+std::string Abonne::getDateAbonnement() const {
     return _dateAbonnement;
 }
 
-void Abonne::setDateAbonnement(char *dateAbonnement) {
+void Abonne::setDateAbonnement(std::string dateAbonnement) {
     _dateAbonnement = dateAbonnement;
 }
 
-Abonne::Abonne(int idAbonne, char *nomPersonne, char *prenomPersonne, int agePersonne, char * dateAbonnement)
+Abonne::Abonne(int idAbonne, char *nomPersonne, char *prenomPersonne, int agePersonne, std::string dateAbonnement)
 : Personne(nomPersonne, prenomPersonne, agePersonne){
     _idAbonne=idAbonne;
-    _dateAbonnement = dateAbonnement;
+    _dateAbonnement=dateAbonnement;
 }
 
 

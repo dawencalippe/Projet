@@ -5,13 +5,20 @@
 #include <c++/4.8.3/ctime>
 #include "Visiteur.h"
 #include <iostream>
+#include <c++/4.8.3/cstring>
 
 int Visiteur::current_id=0;
+
+Visiteur::Visiteur(char *nomPersonne, char *prenomPersonne, int agePersonne, int idVisiteur, std::string dateArrivee)
+:Personne(nomPersonne, prenomPersonne, agePersonne),
+_idVisiteur(idVisiteur), _dateArrivee(dateArrivee) {}
 
 Visiteur::Visiteur() {
     _idVisiteur=current_id;
     time_t now = time(0);
-    _dateArrivee = ctime(&now);
+    char * dateActuelle = ctime(&now);
+    std::string temp(dateActuelle);
+    _dateArrivee = temp;
     current_id++;
 }
 
@@ -25,8 +32,6 @@ Visiteur::Visiteur(char *nomPersonne, char *prenomPersonne, int agePersonne)
 
 
 Visiteur::~Visiteur() {
-    _dateArrivee= nullptr;
-    delete [] _dateArrivee;
     std::cout <<"Visiteur détruit"<< std::endl;
 }
 
@@ -47,10 +52,12 @@ void Visiteur::setIdVisiteur(int idVisiteur) {
     _idVisiteur = idVisiteur;
 }
 
-char *Visiteur::getDateArrivee() const {
+std::string Visiteur::getDateArrivee() const {
     return _dateArrivee;
 }
 
-void Visiteur::setDateArrivee(char *dateArrivee) {
+void Visiteur::setDateArrivee(std::string dateArrivee) {
     _dateArrivee = dateArrivee;
 }
+
+

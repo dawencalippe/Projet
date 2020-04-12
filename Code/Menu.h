@@ -9,15 +9,17 @@ class Menu {
 private :
     char _entreeClavier;
     char _entreeClavierS[100];
-    int _entreClavierInt;
-    GestionPort gestionPort;
+    int _entreeClavierInt;
+    GestionPort _gestionPort;
+private:
     std::list <Bateau *> _listeBateaux;
-
-    void afficherPlacesDispo(Bateau bat, Place place);
-    void choisirPlace(Bateau bat);
 
 public :
     Menu();
+
+    void choisirPlace(Bateau * bat);
+    void afficherPlacesDispo(Bateau * bat, Place * place);
+    Menu(GestionPort gestionport);
     virtual ~Menu();
     void afficherMenu();
     void afficherFactures();
@@ -27,6 +29,7 @@ public :
     void afficherPlacesDispo();
     void ajouterUnePersonne();
     void supprimerUnePersonne();
+    const GestionPort &getGestionPort() const;
 
 };
 
