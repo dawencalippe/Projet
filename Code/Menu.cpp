@@ -5,12 +5,12 @@ using namespace std;
 void Menu::afficherMenu() {
     cout << "Bonjour, bienvenue dans notre Port, que souhaitez vous faire ? \n"
             "1) Enregistrer une nouvelle arrivée\n"
-            "2) Afficher la liste des bateaux inscrits dans le port.\n"
+            "2) Enregistrer un départ\n"
             "3) Afficher la liste des abonnes.\n"
-            "4) Afficher la liste des visiteurs en cours.\n"
+            "4) Afficher la liste des visiteurs.\n"
             "5) Afficher la liste des places disponibles.\n"
-            "6) Ajouter une personne.\n"
             "7) Supprimer une personne.\n"
+            "8) Enregistrer un nouveau payement. \n"
             "\nVeuillez rentrer le nombre qui correspond à ce que vous souhaitez faire :" <<endl;
     cin >> _entreeClavier;
 
@@ -167,7 +167,12 @@ Menu::~Menu() {
 }
 
 void Menu::supprimerUnePersonne() {
-    //TODO
+    Personne * personne = recherchePersonne();
+    if(dynamic_cast<Abonne *>(personne)){
+        _gestionPort.removeAbonne(dynamic_cast<Abonne *>(personne));
+    }else{
+        _gestionPort.removeVisiteur(dynamic_cast<Visiteur *>(personne));
+    }
 }
 
 const GestionPort &Menu::getGestionPort() const {
@@ -318,6 +323,24 @@ Bateau * Menu::choixBateau(Personne *personne) {
         }
     }
     return bateau;
+}
+
+void Menu::enregistrerDepart() {
+    cout<<"Recherche de la personne à supprimer"<<endl;
+    Personne * personne = recherchePersonne();
+    Bateau * bateau = choixBateau(personne);
+    int idPlace = bateau->getCurrentPlace();
+    bateau->setCurrentPlace(0);
+    libererPlace(idPlace);
+    //TODO : facturation
+}
+
+void Menu::libererPlace(int place) {
+    for(auto &it : _gestionPort.getListePlace()){
+        if(it->getIdPlace()==place){
+            it->setPrise(false);
+        }
+    }
 }
 
 

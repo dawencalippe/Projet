@@ -25,6 +25,7 @@ public :
     void afficherAbonnees();
     void afficherVisiteurs();
     void afficherPlacesDispo();
+    void enregistrerDepart();
     Personne * ajouterUnePersonne();
     void supprimerUnePersonne();
     const GestionPort &getGestionPort() const;
@@ -38,6 +39,8 @@ public :
     Bateau *creationBateau(Personne *personne);
 
     Bateau * choixBateau(Personne *personne);
+
+    void libererPlace(int place);
 };
 
 

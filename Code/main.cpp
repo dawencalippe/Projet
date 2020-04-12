@@ -48,7 +48,7 @@ int main() {
     menu.afficherPlacesDispo(bateau, p1);
     bateau->affiche();*/
     //menu.enregistrerEntree();
-    menu.enregistrerEntree();
-    abo->affiche();
-
+    menu.afficherAbonnees();
+    menu.supprimerUnePersonne();
+    menu.afficherAbonnees();
 }
