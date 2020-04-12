@@ -34,7 +34,10 @@ Abonne::~Abonne(){
 void Abonne::affiche() const {
     if(_prenom!= nullptr && _nom != nullptr){
         std::cout << "Abonne " <<_idAbonne <<" s'appelle "  <<  _prenom << " " <<  _nom << " et il a " << _age
-        << " et il est inscrit depuis le " << _dateAbonnement << std::endl;
+        << " et il est inscrit depuis le " << _dateAbonnement << "avec les bateaux suivants : " << std::endl;
+        for(auto &it : _listeBateaux){
+            it->affiche();
+        }
     }else{
         std::cout << "Personne s'appelle ERROR PAS DE NOM DEFINI" << " et il a " << _age << std::endl;
     }

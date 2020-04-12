@@ -74,8 +74,8 @@ void Bateau::setTypeBateau(Bateau::TYPEBATEAU typeBateau) {
 }
 
 void Bateau::affiche() const{
-    std::cout << "Nom du Bateau : " << _nom <<", taille : " <<_taille <<", nombre de cabine : " << _nbCabines
-    << ", place du bateau : " << _currentPlace << ", tyep de bateau :" <<_typeBateau << std::endl;
+    std::cout << "  Nom du Bateau : " << _nom <<", taille : " <<_taille <<", nombre de cabine : " << _nbCabines
+    << ", place du bateau : " << _currentPlace << ", type de bateau :" <<_typeBateau << std::endl;
 }
 
 

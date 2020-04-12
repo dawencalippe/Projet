@@ -38,7 +38,11 @@ Visiteur::~Visiteur() {
 void Visiteur::affiche() const {
     if(_prenom!= nullptr && _nom != nullptr){
         std::cout << "Visiteur " <<_idVisiteur <<" s'appelle "  <<  _prenom << " " <<  _nom << " et il a " << _age
-                  << " et il est arrivé depuis le " << _dateArrivee<< std::endl;
+                  << " et il est arrivé depuis le " << _dateArrivee<< "avec les bateaux suivants :" <<std::endl;
+        for(auto &it : _listeBateaux){
+            it->affiche();
+        }
+
     }else{
         std::cout << "Personne s'appelle ERROR PAS DE NOM DEFINI" << " et il a " << _age << std::endl;
     }

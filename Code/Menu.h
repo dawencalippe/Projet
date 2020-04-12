@@ -17,19 +17,27 @@ private:
 public :
     Menu();
     void choisirPlace(Bateau * bat);
-    void afficherPlacesDispo(Bateau * bat, Place * place);
+    void afficherPlacesDispo(Bateau * bat);
     Menu(GestionPort gestionport);
     virtual ~Menu();
     void afficherMenu();
-    void afficherFactures();
     void afficherBateaux();
     void afficherAbonnees();
     void afficherVisiteurs();
     void afficherPlacesDispo();
-    void ajouterUnePersonne();
+    Personne * ajouterUnePersonne();
     void supprimerUnePersonne();
     const GestionPort &getGestionPort() const;
+    void enregistrerEntree();
+    Personne * recherchePersonne();
 
+    Abonne *rechercheAbonne(char *nom, char *prenom, int age);
+
+    Visiteur *rechercheVisiteur(char *nom, char *prenom, int age);
+
+    Bateau *creationBateau(Personne *personne);
+
+    Bateau * choixBateau(Personne *personne);
 };
 
 

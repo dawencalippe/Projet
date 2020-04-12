@@ -9,7 +9,7 @@
 
 int main() {
     std::cout << "Hello, Dawen et Aurore!" << std::endl;
-    Bateau * bateau = new Bateau(9, 2, "Conquérant", Bateau::VOILIER_1);
+    Bateau * bateau = new Bateau(9, 2, "vaillant", Bateau::VOILIER_1);
     GestionPort port;
     Place * p1 = new Place(36.0, Place::PLACEGRANDE);
     Place * p2 = new Place(36.0, Place::TYPEPLACE::PLACENORMAL);
@@ -41,11 +41,14 @@ int main() {
     port.addVisiteur(v);
     port.addVisiteur(visi);
     std::cout<<"-------------"<<std::endl;
-    Menu menu(port);
+    Menu menu(port);/*
     menu.afficherPlacesDispo(bateau, p1);
     menu.choisirPlace(bateau);
     std::cout<<"-------------"<<std::endl;
     menu.afficherPlacesDispo(bateau, p1);
-    bateau->affiche();
+    bateau->affiche();*/
+    //menu.enregistrerEntree();
+    menu.enregistrerEntree();
+    abo->affiche();
 
 }

@@ -9,5 +9,5 @@ Facture::Facture(Personne *personne) {
 }
 
 void Facture::calculFacture(int reduction) {
-
+    _montant = 100;
 }
