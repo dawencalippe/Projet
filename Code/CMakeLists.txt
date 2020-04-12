@@ -10,4 +10,4 @@ add_executable(Code main.cpp Personne.cpp Personne.h Abonne.cpp Abonne.h Visiteu
                 ./Ressource/tinyxml2/tinyxml2.cpp ./Ressource/tinyxml2/tinyxml2.h
                 Bateau.cpp Bateau.h
                 Place.cpp Place.h
-                Menu.cpp Menu.h)
+                Menu.cpp Menu.h Facture.cpp Facture.h)

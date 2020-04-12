@@ -16,7 +16,6 @@ private:
 
 public :
     Menu();
-
     void choisirPlace(Bateau * bat);
     void afficherPlacesDispo(Bateau * bat, Place * place);
     Menu(GestionPort gestionport);
