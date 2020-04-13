@@ -52,16 +52,8 @@ int Visiteur::getIdVisiteur() const {
     return _idVisiteur;
 }
 
-void Visiteur::setIdVisiteur(int idVisiteur) {
-    _idVisiteur = idVisiteur;
-}
-
 std::string Visiteur::getDateArrivee() const {
     return _dateArrivee;
-}
-
-void Visiteur::setDateArrivee(std::string dateArrivee) {
-    _dateArrivee = dateArrivee;
 }
 
 

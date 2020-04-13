@@ -21,28 +21,18 @@ public :
     Menu(GestionPort gestionport);
     virtual ~Menu();
     void afficherMenu();
-    void afficherBateaux();
     void afficherAbonnees();
     void afficherVisiteurs();
     void afficherPlacesDispo();
     void enregistrerDepart();
     Personne * ajouterUnePersonne();
     void supprimerUnePersonne();
-    const GestionPort &getGestionPort() const;
     void enregistrerEntree();
     Personne * recherchePersonne();
-
     Abonne *rechercheAbonne(char *nom, char *prenom, int age);
-
     Visiteur *rechercheVisiteur(char *nom, char *prenom, int age);
-
     Bateau *creationBateau(Personne *personne);
-
     Bateau * choixBateau(Personne *personne);
-
     void libererPlace(int place);
-
 };
-
-
 #endif //CODE_MENU_H

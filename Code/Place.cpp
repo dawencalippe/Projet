@@ -41,16 +41,8 @@ bool Place::isSuplemmentElectricite() const {
     return _suplemmentElectricite;
 }
 
-void Place::setSuplemmentElectricite(bool suplemmentElectricite) {
-    _suplemmentElectricite = suplemmentElectricite;
-}
-
 bool Place::isSuplementEau() const {
     return _suplementEau;
-}
-
-void Place::setSuplementEau(bool suplementEau) {
-    _suplementEau = suplementEau;
 }
 
 void Place::affichePlace() const {
@@ -59,19 +51,19 @@ void Place::affichePlace() const {
 
 void Place::affichePlaceNormale() const {
     if (this->_typePlace == PLACENORMAL){
-        std::cout << "id : "<< _idPlace  << ", tailleMax : " << _tailleMax << ", type de place : " << ToString(_typePlace) << std::endl;
+        affichePlace();
     }
 }
 
 void Place::affichePlaceGrande() const {
     if (this->_typePlace == PLACEGRANDE){
-        std::cout << "id : "<< _idPlace  << ", tailleMax : " << _tailleMax << ", type de place : " << ToString(_typePlace) << std::endl;
+        affichePlace();
     }
 }
 
 void Place::afficheCoprsMort() const {
     if (this->_typePlace == CORPSMORT){
-        std::cout << "id : "<< _idPlace  << ", tailleMax : " << _tailleMax << ", type de place : " << ToString(_typePlace) << std::endl;
+        affichePlace();
     }
 }
 
@@ -83,16 +75,8 @@ float Place::getTailleMax() const {
     return _tailleMax;
 }
 
-void Place::setTailleMax(float tailleMax) {
-    _tailleMax = tailleMax;
-}
-
 Place::TYPEPLACE Place::getTypePlace() const {
     return _typePlace;
-}
-
-void Place::setTypePlace(Place::TYPEPLACE typePlace) {
-    _typePlace = typePlace;
 }
 
 

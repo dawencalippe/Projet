@@ -37,24 +37,12 @@ int Bateau::getTaille() const {
     return _taille;
 }
 
-void Bateau::setTaille(int taille) {
-    _taille = taille;
-}
-
 int Bateau::getNbCabines() const {
     return _nbCabines;
 }
 
-void Bateau::setNbCabines(int nbCabines) {
-    _nbCabines = nbCabines;
-}
-
 char * Bateau::getNom() const {
     return _nom;
-}
-
-void Bateau::setNom(char * nom) {
-    _nom = nom;
 }
 
 int Bateau::getCurrentPlace() const {
@@ -69,13 +57,9 @@ Bateau::TYPEBATEAU Bateau::getTypeBateau() const {
     return _typeBateau;
 }
 
-void Bateau::setTypeBateau(Bateau::TYPEBATEAU typeBateau) {
-    _typeBateau = typeBateau;
-}
-
 void Bateau::affiche() const{
     std::cout << "  Nom du Bateau : " << _nom <<", taille : " <<_taille <<", nombre de cabine : " << _nbCabines
-    << ", place du bateau : " << _currentPlace << ", type de bateau :" <<_typeBateau << std::endl;
+    << ", place du bateau : " << _currentPlace << ", type de bateau :" <<ToString(_typeBateau) << std::endl;
 }
 
 

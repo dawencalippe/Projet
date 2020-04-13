@@ -1,7 +1,3 @@
-//
-// Created by 33629 on 28/03/2020.
-//
-
 #ifndef CODE_PLACE_H
 #define CODE_PLACE_H
 
@@ -52,18 +48,12 @@ public :
     bool isPrise() const;
     void setPrise(bool prise);
     bool isSuplemmentElectricite() const;
-    void setSuplemmentElectricite(bool suplemmentElectricite);
     bool isSuplementEau() const;
-    void setSuplementEau(bool suplementEau);
     void affichePlace() const;
     void affichePlaceNormale() const;
     void affichePlaceGrande() const;
     void afficheCoprsMort() const;
     float getTailleMax() const;
-    void setTailleMax(float tailleMax);
     TYPEPLACE getTypePlace() const;
-    void setTypePlace(TYPEPLACE typePlace);
 };
-
-
 #endif //CODE_PLACE_H

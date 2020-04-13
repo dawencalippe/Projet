@@ -22,16 +22,8 @@ const list<Abonne *> &GestionPort::getListeAbonne() const {
     return _listeAbonne;
 }
 
-void GestionPort::setListeAbonne(const list<Abonne *> &listeAbonne) {
-    _listeAbonne = listeAbonne;
-}
-
 const list<Visiteur *> &GestionPort::getListeVisiteur() const {
     return _listeVisiteur;
-}
-
-void GestionPort::setListeVisiteur(const list<Visiteur *> &listeVisiteur) {
-    _listeVisiteur = listeVisiteur;
 }
 
 const list<Place *> &GestionPort::getListePlace() const {

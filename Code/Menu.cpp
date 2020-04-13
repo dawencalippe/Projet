@@ -5,8 +5,8 @@ using namespace std;
 
 void Menu::afficherMenu() {
     cout << "Bonjour, bienvenue dans notre Port, que souhaitez vous faire ? \n"
-            "1) Enregistrer une nouvelle arrivée\n"
-            "2) Enregistrer un départ\n"
+            "1) Enregistrer une nouvelle arrivee\n"
+            "2) Enregistrer un depart\n"
             "3) Afficher la liste des abonnes.\n"
             "4) Afficher la liste des visiteurs.\n"
             "5) Afficher la liste des places disponibles.\n"
@@ -49,13 +49,6 @@ void Menu::afficherMenu() {
             break;
     }
 
-}
-
-void Menu::afficherBateaux() {
-    cout<<"Liste des bateaux :"<<endl;
-    for(auto &it : _listeBateaux){
-        it->affiche();
-    }
 }
 
 void Menu::afficherAbonnees() {
@@ -162,7 +155,7 @@ void Menu::choisirPlace(Bateau * bat) {
         }
     }
     if(!trouve){
-        cout<<"Numéro de la place invalide"<<endl;
+        cout<<"Numero de la place invalide"<<endl;
         choisirPlace(bat);
     }
 }
@@ -182,14 +175,10 @@ void Menu::supprimerUnePersonne() {
     }
 }
 
-const GestionPort &Menu::getGestionPort() const {
-    return _gestionPort;
-}
-
 Menu::Menu(GestionPort gestionPort) :_gestionPort(gestionPort){}
 
 void Menu::enregistrerEntree() {
-    cout<<"Le nouvel arrivant est-il déjà venu dans notre port ? [y/n]"<<endl;
+    cout<<"Le nouvel arrivant est-il deja venu dans notre port ? [y/n]"<<endl;
     cin >> _entreeClavier;
     while(_entreeClavier != 'y' && _entreeClavier !='Y' && _entreeClavier != 'n' && _entreeClavier !='N'){
         cout<<"Veuillez entrer y ou n :"<<endl;
@@ -334,17 +323,17 @@ Bateau * Menu::choixBateau(Personne *personne) {
 }
 
 void Menu::enregistrerDepart() {
-    cout<<"Recherche de la personne à supprimer"<<endl;
+    cout<<"Recherche de la personne a supprimer"<<endl;
     Personne * personne = recherchePersonne();
     Bateau * bateau = choixBateau(personne);
-    cout<<"Combien de jour est resté la personne ?";
+    cout<<"Combien de jour est reste la personne ?";
     cin>> _entreeClavierInt;
     _gestionPort.getPlace(0);
     Facture * facture = new Facture(personne, bateau, _gestionPort.getPlace(bateau->getCurrentPlace()),_entreeClavierInt);
     if(_gestionPort.getPlace(bateau->getCurrentPlace())->getTypePlace() == Place::TYPEPLACE::CORPSMORT){
         facture->calculFacture(50);
     }
-    cout<<"le client a t il réglé la facture ?[y/n]"<<endl;
+    cout<<"le client a t il regle la facture ?[y/n]"<<endl;
     cin >> _entreeClavier;
     while(_entreeClavier != 'y' && _entreeClavier !='Y' && _entreeClavier != 'n' && _entreeClavier !='N'){
         cout<<"Veuillez entrer y ou n :"<<endl;
