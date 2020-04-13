@@ -71,12 +71,14 @@ void Menu::afficherPlacesDispo() {
 }
 
 Personne * Menu::ajouterUnePersonne() {
+    char *nomPersonne = new char(100);
+    char *prenomPersonne= new char(100);
     cout << "Quel est le nom de la personne ? :" <<endl;
     cin >> _entreeClavierS;
-    char * nomPersonne = _entreeClavierS;
+    strcpy(nomPersonne, _entreeClavierS);
     cout <<"Quel est le prenom de la personne ? :"<<endl;
     cin >> _entreeClavierS;
-    char * prenomPersonne = _entreeClavierS;
+    strcpy(prenomPersonne, _entreeClavierS);
     cout << "Quel est l'age de la personne ? :"<<endl;
     cin >> _entreeClavierInt;
     int age = _entreeClavierInt;
@@ -89,9 +91,11 @@ Personne * Menu::ajouterUnePersonne() {
     if(_entreeClavier == 'a' || _entreeClavier =='A'){
         Abonne* abo = new Abonne(nomPersonne, prenomPersonne, age);
         _gestionPort.addAbonne(abo);
+        return abo;
     }else{
         Visiteur * visit = new Visiteur(nomPersonne, prenomPersonne, age);
         _gestionPort.addVisiteur(visit);
+        return visit;
     }
 }
 
@@ -123,24 +127,18 @@ void Menu::afficherPlacesDispo(Bateau * bat) {
             if(!it->isPrise()){
                 it->afficheCoprsMort();
                 it->affichePlaceNormale();
-            } else {
-                cout << "aucune place dispo pour ce type de bateau"<<endl;
             }
         }
     } else if (bat->getTypeBateau()==Bateau::VOILIER_1 && suppElec || suppEau) {
         for(auto &it : _gestionPort.getListePlace()){
             if(!it->isPrise()){
                 it->affichePlaceNormale();
-            } else {
-                cout << "aucune place dispo pour ce type de bateau"<<endl;
             }
         }
     } else if (bat->getTypeBateau() == Bateau::VOILIER_2) {
         for(auto &it : _gestionPort.getListePlace()){
             if(!it->isPrise()){
                 it->affichePlaceGrande();
-            } else {
-                cout << "aucune place dispo pour ce type de bateau"<<endl;
             }
         }
     }
@@ -169,16 +167,18 @@ void Menu::choisirPlace(Bateau * bat) {
 
 Menu::Menu() {}
 
-Menu::~Menu() {
-
-}
+Menu::~Menu() {}
 
 void Menu::supprimerUnePersonne() {
     Personne * personne = recherchePersonne();
-    if(dynamic_cast<Abonne *>(personne)){
-        _gestionPort.removeAbonne(dynamic_cast<Abonne *>(personne));
+    if(personne !=nullptr){
+        if(dynamic_cast<Abonne *>(personne)){
+            _gestionPort.removeAbonne(dynamic_cast<Abonne *>(personne));
+        }else{
+            _gestionPort.removeVisiteur(dynamic_cast<Visiteur *>(personne));
+        }
     }else{
-        _gestionPort.removeVisiteur(dynamic_cast<Visiteur *>(personne));
+        cout<<"aucune personne trouve"<<endl;
     }
 }
 
@@ -197,9 +197,17 @@ void Menu::enregistrerEntree() {
     }
     if(_entreeClavier == 'y' || _entreeClavier =='Y'){
         Personne * personne = recherchePersonne();
-        Bateau * bateau = choixBateau(personne);
-        afficherPlacesDispo(bateau);
-        choisirPlace(bateau);
+        if(personne != nullptr){
+            Bateau * bateau = choixBateau(personne);
+            if(bateau != nullptr){
+                afficherPlacesDispo(bateau);
+                choisirPlace(bateau);
+            }else{
+                cout<<"Aucun bateau trouvé"<<endl;
+            }
+        }else{
+            cout<<"Aucune personne trouvé"<<endl;
+        }
     }else{
         cout<<"Voulez-vous l'enregistrer comme nouveau client ? [y/n]"<<endl;
         cin >> _entreeClavier;
@@ -210,7 +218,13 @@ void Menu::enregistrerEntree() {
         if(_entreeClavier == 'y' || _entreeClavier =='Y'){
             cout<<"Ajout de la personne"<<endl;
             Personne * personne = ajouterUnePersonne();
-            Bateau * bateau = creationBateau(personne);
+            Bateau * bateau = creationBateau();
+            if(bateau!=nullptr){
+                personne->addBateau(bateau);
+                bateau->affiche();
+            }else{
+                cout<<"PAS DE BATEAU AJOUTE"<<endl;
+            }
             afficherPlacesDispo(bateau);
             choisirPlace(bateau);
         }else{
@@ -222,14 +236,14 @@ void Menu::enregistrerEntree() {
 Personne * Menu::recherchePersonne() {
     Personne * personne = nullptr;
     int age;
-    char *nomPersonne ;
-    char *prenomPersonne;
+    char *nomPersonne = new char(100);
+    char *prenomPersonne= new char(100);
     cout<<"Entrez le nom de la personne :"<<endl;
     cin >> _entreeClavierS;
-    nomPersonne =_entreeClavierS;
+    strcpy(nomPersonne, _entreeClavierS);
     cout<<"Entrez le prénom de la personne :"<<endl;
     cin >> _entreeClavierS;
-    prenomPersonne =_entreeClavierS;
+    strcpy(prenomPersonne, _entreeClavierS);
     cout<<"Entrez l'âge de la personne :"<<endl;
     cin >> _entreeClavierInt;
     age = _entreeClavierInt;
@@ -267,14 +281,15 @@ Visiteur *Menu::rechercheVisiteur(char *nom, char *prenom, int age) {
     return nullptr;
 }
 
-Bateau *Menu::creationBateau(Personne *personne) {
+Bateau *Menu::creationBateau() {
     Bateau * bateau;
+    char * nomBateau = new char(100);
     cout << "Quel est la taille du bateau ?"<<endl;
     cin >> _entreeClavierInt;
     int taille = _entreeClavierInt;
     cout << "Quel est le nom du bateau ? "<< endl;
     cin >> _entreeClavierS;
-    char * nomBateau = _entreeClavierS;
+    strcpy(nomBateau, _entreeClavierS);
     if (taille<10){
         bateau = new  Bateau(taille, 0, nomBateau, Bateau::VOILIER_NH);
     } else {
@@ -287,7 +302,6 @@ Bateau *Menu::creationBateau(Personne *personne) {
             bateau = new Bateau(taille, nbCabines, nomBateau, Bateau::VOILIER_2);
         }
     }
-    personne->addBateau(bateau);
     return bateau;
 }
 
@@ -295,7 +309,10 @@ Bateau * Menu::choixBateau(Personne *personne) {
     Bateau * bateau;
     if(personne->getListeBateaux().size() ==0){
         cout<<"la personne n'a aucun bateau de connu. Merci de rentrez les informations du bateau"<<endl;
-        bateau = creationBateau(personne);
+        bateau = creationBateau();
+        if(bateau!=nullptr){
+            personne->addBateau(bateau);
+        }
     }
     if(personne->getListeBateaux().size()==1){
         return personne->getListeBateaux().front();
@@ -326,7 +343,7 @@ Bateau * Menu::choixBateau(Personne *personne) {
                 }
             }
             if(!trouve){
-                bateau = creationBateau(personne);
+                bateau = creationBateau();
             }
         }
     }

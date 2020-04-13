@@ -220,7 +220,6 @@ void GestionPort::importPlace(tinyxml2::XMLDocument *document) {
     currentID->QueryIntAttribute("currentID", &Place::current_id);
     XMLElement * place = docHandle.LastChild().FirstChildElement("ListePlaces")
             .FirstChild().ToElement();
-    cout<<"----------------------"<<endl;
     while(place){
         Place::TYPEPLACE typeplace;
         float tailleMax;

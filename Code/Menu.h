@@ -19,7 +19,7 @@ public :
     void choisirPlace(Bateau * bat);
     void afficherPlacesDispo(Bateau * bat);
     Menu(GestionPort gestionport);
-    virtual ~Menu();
+     ~Menu();
     void afficherMenu();
     void afficherBateaux();
     void afficherAbonnees();
@@ -36,7 +36,7 @@ public :
 
     Visiteur *rechercheVisiteur(char *nom, char *prenom, int age);
 
-    Bateau *creationBateau(Personne *personne);
+    Bateau *creationBateau();
 
     Bateau * choixBateau(Personne *personne);
 

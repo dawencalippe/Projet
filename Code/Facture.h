@@ -52,9 +52,7 @@ private:
 public:
     Facture(Personne * personne, Bateau * bateau,Place *place,  int nbJour);
     void calculFacture(int reduction);
-
     int calculAbonne();
-
     int calculVisiteur();
     void affichefacture();
 };
