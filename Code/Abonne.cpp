@@ -47,16 +47,8 @@ int Abonne::getIdAbonne() const {
     return _idAbonne;
 }
 
-void Abonne::setIdAbonne(int idAbonne) {
-    _idAbonne = idAbonne;
-}
-
 std::string Abonne::getDateAbonnement() const {
     return _dateAbonnement;
-}
-
-void Abonne::setDateAbonnement(std::string dateAbonnement) {
-    _dateAbonnement = dateAbonnement;
 }
 
 Abonne::Abonne(int idAbonne, char *nomPersonne, char *prenomPersonne, int agePersonne, std::string dateAbonnement)

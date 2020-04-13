@@ -1,7 +1,3 @@
-//
-// Created by dawen on 12/04/2020.
-//
-
 #ifndef CODE_FACTURE_H
 #define CODE_FACTURE_H
 
@@ -56,6 +52,4 @@ public:
     int calculVisiteur();
     void affichefacture();
 };
-
-
 #endif //CODE_FACTURE_H

@@ -1,7 +1,3 @@
-//
-// Created by dawen on 18/03/2020.
-//
-
 #ifndef CODE_ABONNE_H
 #define CODE_ABONNE_H
 
@@ -19,13 +15,6 @@ public:
     void affiche() const;
     ~Abonne();
     int getIdAbonne() const;
-
-    void setIdAbonne(int idAbonne);
-
     std::string getDateAbonnement() const;
-
-    void setDateAbonnement(std::string dateAbonnement);
 };
-
-
 #endif //CODE_ABONNE_H

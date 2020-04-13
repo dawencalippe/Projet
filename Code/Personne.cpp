@@ -34,7 +34,6 @@ Personne::Personne(char *nomPersonne, char *prenomPersonne, int agePersonne) {
     _age=agePersonne;
 }
 
-
 Personne::~Personne() {
     _prenom= nullptr;
     _nom= nullptr;
@@ -55,33 +54,16 @@ char *Personne::getPrenom() const {
     return _prenom;
 }
 
-void Personne::setPrenom(char *prenom) {
-    _prenom = prenom;
-}
-
 char *Personne::getNom() const {
     return _nom;
-}
-
-void Personne::setNom(char *nom) {
-    _nom = nom;
 }
 
 int Personne::getAge() const {
     return _age;
 }
 
-void Personne::setAge(int age) {
-    _age = age;
-}
-
 void Personne::addBateau(Bateau * bateau) {
     _listeBateaux.push_back(bateau);
-}
-
-void Personne::removeBateau(Bateau * bateau) {
-    _listeBateaux.remove(bateau);
-    delete(bateau);
 }
 
 const std::list<Bateau *> &Personne::getListeBateaux() const {
