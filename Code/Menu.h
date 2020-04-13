@@ -41,6 +41,7 @@ public :
     Bateau * choixBateau(Personne *personne);
 
     void libererPlace(int place);
+
 };
 
 

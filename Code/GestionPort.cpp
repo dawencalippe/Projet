@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <msxml.h>
 #include "GestionPort.h"
 #include "Personne.h"
 #include "Abonne.h"
@@ -17,7 +16,6 @@ using namespace tinyxml2;
 GestionPort::GestionPort() = default;
 
 GestionPort::~GestionPort() {
-    cout << "GestionPort détruit" << endl;
 }
 
 const list<Abonne *> &GestionPort::getListeAbonne() const {
@@ -191,7 +189,6 @@ void GestionPort::importPersonne(tinyxml2::XMLDocument * document){
         abonne->QueryIntAttribute("age",&age);
         abonne->QueryIntAttribute("idAbonne",&idAbonnement);
         Abonne * abonneAdd = new Abonne(idAbonnement,nom,prenom ,age , dateAbonnement);
-        abonneAdd->affiche();
         importBateaux(abonne, abonneAdd);
         _listeAbonne.push_back(abonneAdd);
         abonne = abonne->NextSiblingElement();
@@ -211,8 +208,7 @@ void GestionPort::importPersonne(tinyxml2::XMLDocument * document){
         visiteur->QueryIntAttribute("age",&age);
         visiteur->QueryIntAttribute("idVisiteur",&idVisiteur);
         Visiteur * visiteurAdd = new Visiteur(nom, prenom, age, idVisiteur, dateArrivee);
-        visiteurAdd->affiche();
-        //importBateaux(visiteur, visiteurAdd);
+        importBateaux(visiteur, visiteurAdd);
         _listeVisiteur.push_back(visiteurAdd);
         visiteur = visiteur->NextSiblingElement();
     }
@@ -238,7 +234,6 @@ void GestionPort::importPlace(tinyxml2::XMLDocument *document) {
         place->QueryBoolAttribute("suppElec", &suplemmentElec);
         place->QueryBoolAttribute("suppEau", &suplemmentEau);
         Place * placeAdd = new Place(idPlace, tailleMax, typeplace, prise, suplemmentElec, suplemmentEau);
-        placeAdd->affichePlace();
         _listePlace.push_back(placeAdd);
         place = place->NextSiblingElement();
     }
@@ -260,6 +255,26 @@ void GestionPort::importBateaux(tinyxml2::XMLElement *root, Personne *personne) 
         bateau = bateau->NextSiblingElement();
     }
 }
+
+Place *GestionPort::getPlace(int idPlace) {
+    Place * place;
+    bool trouve = false;
+    _List_const_iterator<Place *> iterator = _listePlace.begin();
+    while(iterator!= _listePlace.end() && !trouve){
+        if((*iterator)->getIdPlace()==idPlace){
+            place = (* iterator);
+            trouve = true;
+        }else{
+            iterator++;
+        }
+    }
+    if(!trouve){
+        cout<<"Numéro de la place invalide"<<endl;
+    }
+    return place;
+}
+
+
 
 
 

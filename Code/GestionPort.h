@@ -45,6 +45,8 @@ public:
     void importPlace(tinyxml2::XMLDocument *document);
 
     void importBateaux(tinyxml2::XMLElement *root, Personne *personne);
+
+    Place *getPlace(int idPlace);
 };
 
 #endif //CODE_GESTIONPORT_H

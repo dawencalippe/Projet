@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "Facture.h"
 #include <iostream>
 using namespace std;
 
@@ -9,32 +10,38 @@ void Menu::afficherMenu() {
             "3) Afficher la liste des abonnes.\n"
             "4) Afficher la liste des visiteurs.\n"
             "5) Afficher la liste des places disponibles.\n"
-            "7) Supprimer une personne.\n"
-            "8) Enregistrer un nouveau payement. \n"
+            "6) Supprimer une personne.\n"
+            "7) Exit \n"
             "\nVeuillez rentrer le nombre qui correspond à ce que vous souhaitez faire :" <<endl;
     cin >> _entreeClavier;
 
     switch (_entreeClavier) {
         case '1':
             enregistrerEntree();
+            afficherMenu();
             break;
         case '2':
-            afficherBateaux();
+            enregistrerDepart();
+            afficherMenu();
             break;
         case '3':
             afficherAbonnees();
+            afficherMenu();
             break;
         case '4':
             afficherVisiteurs();
+            afficherMenu();
             break;
         case '5':
             afficherPlacesDispo();
+            afficherMenu();
             break;
         case '6':
-            ajouterUnePersonne();
+            supprimerUnePersonne();
+            afficherMenu();
             break;
         case '7':
-            supprimerUnePersonne();
+            _gestionPort.sauvegarde();
             break;
         default :
             cout<<"Erreur de saisie. Veuillez rentrer le nombre qui correspond à ce que vous souhaitez faire :"<<endl;
@@ -190,9 +197,7 @@ void Menu::enregistrerEntree() {
     }
     if(_entreeClavier == 'y' || _entreeClavier =='Y'){
         Personne * personne = recherchePersonne();
-        personne->affiche();
         Bateau * bateau = choixBateau(personne);
-        bateau->affiche();
         afficherPlacesDispo(bateau);
         choisirPlace(bateau);
     }else{
@@ -204,7 +209,10 @@ void Menu::enregistrerEntree() {
         }
         if(_entreeClavier == 'y' || _entreeClavier =='Y'){
             cout<<"Ajout de la personne"<<endl;
-
+            Personne * personne = ajouterUnePersonne();
+            Bateau * bateau = creationBateau(personne);
+            afficherPlacesDispo(bateau);
+            choisirPlace(bateau);
         }else{
             cout<<"Non ajout de la personne"<<endl;
         }
@@ -329,10 +337,25 @@ void Menu::enregistrerDepart() {
     cout<<"Recherche de la personne à supprimer"<<endl;
     Personne * personne = recherchePersonne();
     Bateau * bateau = choixBateau(personne);
+    cout<<"Combien de jour est resté la personne ?";
+    cin>> _entreeClavierInt;
+    _gestionPort.getPlace(0);
+    Facture * facture = new Facture(personne, bateau, _gestionPort.getPlace(bateau->getCurrentPlace()),_entreeClavierInt);
+    if(_gestionPort.getPlace(bateau->getCurrentPlace())->getTypePlace() == Place::TYPEPLACE::CORPSMORT){
+        facture->calculFacture(50);
+    }
+    cout<<"le client a t il réglé la facture ?[y/n]"<<endl;
+    cin >> _entreeClavier;
+    while(_entreeClavier != 'y' && _entreeClavier !='Y' && _entreeClavier != 'n' && _entreeClavier !='N'){
+        cout<<"Veuillez entrer y ou n :"<<endl;
+        cin >> _entreeClavier;
+    }
+    if(_entreeClavier == 'y' || _entreeClavier =='Y'){
+        facture->setPaye(true);
+    }
     int idPlace = bateau->getCurrentPlace();
     bateau->setCurrentPlace(0);
     libererPlace(idPlace);
-    //TODO : facturation
 }
 
 void Menu::libererPlace(int place) {
