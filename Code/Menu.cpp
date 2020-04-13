@@ -340,7 +340,6 @@ Bateau * Menu::choixBateau(Personne *personne) {
 }
 
 void Menu::enregistrerDepart() {
-    cout<<"Recherche de la personne a supprimer"<<endl;
     Personne * personne = recherchePersonne();
     Bateau * bateau = choixBateau(personne);
     cout<<"Combien de jour est reste la personne ?";
@@ -350,6 +349,7 @@ void Menu::enregistrerDepart() {
     if(_gestionPort.getPlace(bateau->getCurrentPlace())->getTypePlace() == Place::TYPEPLACE::CORPSMORT){
         facture->calculFacture(50);
     }
+    facture->calculFacture(0);
     cout<<"le client a t il regle la facture ?[y/n]"<<endl;
     cin >> _entreeClavier;
     while(_entreeClavier != 'y' && _entreeClavier !='Y' && _entreeClavier != 'n' && _entreeClavier !='N'){

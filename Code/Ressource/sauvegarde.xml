@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <App>
-    <ListePlaces currentID="3">
-        <place idPlace="0" tailleMax="36" typePlace="1" prise="false" suppElec="false" suppEau="false"/>
-        <place idPlace="1" tailleMax="36" typePlace="0" prise="false" suppElec="false" suppEau="false"/>
-        <place idPlace="2" tailleMax="36" typePlace="2" prise="false" suppElec="false" suppEau="false"/>
-        <place idPlace="3" tailleMax="36" typePlace="1" prise="false" suppElec="false" suppEau="false"/>
-        <place idPlace="4" tailleMax="36" typePlace="0" prise="false" suppElec="false" suppEau="false"/>
-        <place idPlace="5" tailleMax="36" typePlace="2" prise="true" suppElec="false" suppEau="false"/>
+    <ListePlaces currentID="18">
+        <place idPlace="1" tailleMax="36" typePlace="0" prise="true" suppElec="true" suppEau="true"/>
+        <place idPlace="2" tailleMax="23" typePlace="2" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="3" tailleMax="45" typePlace="1" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="4" tailleMax="9" typePlace="0" prise="true" suppElec="false" suppEau="false"/>
+        <place idPlace="5" tailleMax="14" typePlace="2" prise="true" suppElec="false" suppEau="false"/>
+        <place idPlace="6" tailleMax="10" typePlace="1" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="7" tailleMax="36" typePlace="0" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="8" tailleMax="23" typePlace="2" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="9" tailleMax="45" typePlace="1" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="10" tailleMax="9" typePlace="0" prise="true" suppElec="false" suppEau="false"/>
+        <place idPlace="11" tailleMax="14" typePlace="2" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="12" tailleMax="10" typePlace="1" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="13" tailleMax="36" typePlace="0" prise="true" suppElec="false" suppEau="false"/>
+        <place idPlace="14" tailleMax="23" typePlace="2" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="15" tailleMax="45" typePlace="1" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="16" tailleMax="9" typePlace="0" prise="false" suppElec="false" suppEau="false"/>
+        <place idPlace="17" tailleMax="14" typePlace="2" prise="true" suppElec="false" suppEau="false"/>
     </ListePlaces>
-    <ListeAbonnes currentID="1">
-        <abonne prenom="Aymeric" nom="Deloche" age="23" idAbonne="0" dateAbonnement="Mon Apr 13 17:29:01 2020
-">
-            <Bateau nom="dofus" taille="9" nombreCabine="0" typeBateau="2" currentPlace="5"/>
+    <ListeAbonnes currentID="3">
+        <abonne prenom="dawen" nom="calippe" age="23" idAbonne="0" dateAbonnement="Mon Apr 13 17:29:01 2020">
+            <Bateau nom="Vaillant" taille="9" nombreCabine="0" typeBateau="2" currentPlace="5"/>
+            <Bateau nom="temp" taille="9" nombreCabine="0" typeBateau="2" currentPlace="4"/>
+        </abonne>
+        <abonne prenom="jean" nom="dupont" age="23" idAbonne="1" dateAbonnement="Mon Apr 13 17:29:01 2020">
+            <Bateau nom="bateau" taille="23" nombreCabine="4" typeBateau="2" currentPlace="17"/>
+        </abonne>
+        <abonne prenom="aurore" nom="dupuie" age="23" idAbonne="2" dateAbonnement="Mon Apr 13 17:29:01 2020">
+            <Bateau nom="navire" taille="9" nombreCabine="0" typeBateau="2" currentPlace="1"/>
         </abonne>
     </ListeAbonnes>
-    <ListeVisiteurs currentID="0"/>
+    <ListeVisiteurs currentID="3">
+        <visiteur prenom="Dawen" nom="Calippe" age="23" idVisiteur="0" dateArrivee="Mon Apr 13 21:45:28 2020
+">
+            <Bateau nom="bateauDawen" taille="25" nombreCabine="5" typeBateau="0" currentPlace="10"/>
+        </visiteur>
+        <visiteur prenom="aurore" nom="Calippe" age="23" idVisiteur="1" dateArrivee="Mon Apr 13 21:45:28 2020
+">
+            <Bateau nom="bateauAurore" taille="25" nombreCabine="5" typeBateau="0" currentPlace="13"/>
+        </visiteur>
+    </ListeVisiteurs>
 </App>
